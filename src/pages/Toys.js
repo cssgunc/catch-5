@@ -10,9 +10,9 @@ export default function Toys() {
       <h1><b>Toy Catalog</b></h1>
       <h3><b>Adapted Toys</b></h3>
       <div><i>Click on the photos to view the toy guides</i></div>
-      <div id = 'catalog-holder'>
-        <div id = 'catalog'>
-          <div class="toy">
+      <div id = 'catalog-holder'> {/* Contains the catalog*/}
+        <div id = 'catalog'> {/* Contains the images */}
+          <div class="toy"> {/* Each toy element is a member the "toy" class */}
           <a href = 'https://docs.google.com/presentation/d/1wbJqiEVo8fUr-7MK_vaexr9-cqTBe6HjSzHXuhyEOuY/edit#slide=id.p'>
             <img src = {require('../images/Toy Catolog/Copy of trex.jpg')} class = 'catalog-picture' alt = 'Modified T-rex Toy'/>
             </a>
@@ -122,9 +122,10 @@ export default function Toys() {
       <div>
         <img src = {require('../images/logo.png')} class = 'catch-logo' alt = 'CATCH Logo'/>
       </div>
+      {/* The shopping cart sidebar */}
       <div class = "cart">
         <h2 class = "cart-title">Your Cart</h2>
-        <div class = "cart-item">
+        <div class = "cart-item"> 
         <div><img class = "cart-item-image" src = {require('../images/Toy Catolog/Copy of snake.jpg')} alt = 'Modified Snake Toy'/> </div>
         <div>
           <h3 class = "cart-item-title">
@@ -133,7 +134,7 @@ export default function Toys() {
           <h4 class = "cart-item-info">
             Info About Item
           </h4>
-          <div class = "item-quantity-changer">
+          <div class = "item-quantity-changer"> {/* Contains the trash can and item quantity counter */}
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="cart-trash" viewBox="0 0 16 16">
             <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
           </svg>
@@ -145,6 +146,7 @@ export default function Toys() {
           </div>
           </div>
         </div>
+        {/* Close button */}
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="black" id="close-button" viewBox="0 0 16 16">
             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
           </svg>
