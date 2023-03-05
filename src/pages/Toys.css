@@ -13,18 +13,112 @@
     justify-content: center;
 }
 
+.cart.active {
+    right: 0;
+}
+
 #catalog {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
     width: 90%;
     padding: 20px 0px 0px 0px;
 }
 
 .catalog-picture {
-    width: 45%;
-    justify-self: center;
+    width: 100%;
     padding: 35px 10px 10px 20px;
 }
 
 .catch-logo { 
     padding: 40px 0px 40px 0px;
     width: 6%;
+}
+
+.toy {
+    position: relative;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0; /*Change this to -100% */
+    width: 360px;
+    min-height: 100vh;
+    padding: 20px;
+    background: white;
+    box-shadow: -5px 0 4px hsla(0, 0%, 0%, 0.1);
+    transition: .3s;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 40% 50%;
+    border-radius: 5%;
+    box-shadow: 0 0 6px 0 gray;
+    padding: 10%;
+}
+
+.cart-item-title {
+    padding-left: 15%;
+    text-align: left;
+    font-size: medium;
+    font-weight: 550;
+}
+
+.input {
+    size: 10px;
+}
+
+.cart-item-info {
+    padding-left: 15%;
+    text-align: left;
+    font-size: small;
+    font-weight: 400;
+}
+
+.cart-item-image {
+    width: 100%;
+    border-radius: 5%;
+    box-shadow: 6px 6px 10px gray;
+}
+
+.item-quantity-changer {
+    padding-left: 15%;
+    padding-top: 18%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.counter {
+    font-weight: 550;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    background-color: #D3D3D3;
+    border-radius: 16px 16px 16px 16px;
+}
+
+.plus, .minus {
+    cursor: pointer;
+}
+
+#close-button {
+    position: absolute;
+    top: 1rem;
+    right: .8rem;
+    cursor: pointer;
+}
+
+.cart-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.add-button {
+    fill: orange;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
 }
