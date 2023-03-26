@@ -47,6 +47,17 @@ function ready(){
     var button = addCart[i]
     button.addEventListener('click', addCartClicked);
   }
+  //Buy Button work
+  document.getElementsByClassName("btn-buy")[0].addEventListener("click", buyButtonClicked);
+}
+//Buy Button
+function buyButtonClicked(){
+  alert('Your Order is placed')
+  var cartContent = document.getElementsByClassName('cart-item')[0];
+  while (cartContent.hasChildNodes()){
+    cartContent.removeChild(cartContent.firstChild);
+  }
+  updatetotal();
 }
 
 // Quantity Changes
@@ -68,19 +79,49 @@ function removeCartItem(event){
 //Add To Cart
 function addCartClicked(event){
   var button = event.target
-  var toyProducts = button.parentElement
-  var title = toyProducts.getElementsByClassName('cart-item-title')[0].innerText
+  var toyProducts = button.parentElement;
+  var title = toyProducts.getElementsByClassName('cart-item-title')[0].innerText;
   var productImg = toyProducts.getElementsByClassName("cart-item-image")[0].sec;
-  //var price = toyProducts.getElementsByClassName("price")[0].innerText
+  //var price = toyProducts.getElementsByClassName("price")[0].innerText;
+  addProductToCart(title, price, productImg);
   console.log(title, ProductImg);
   updatetotal();
 }
 function addProductToCart(title, price, productImg){
   var CartShopBox = document.createElement("div");
   // cartShopBox.classList.add('cart-box')
-  var cartItems = document.getElementsByClassName('cart-item')
-  var cartItemsNames = carItems.getElementsByClassName('cart-item-title')
+  var cartItems = document.getElementsByClassName('cart-item');
+  var cartItemsNames = carItems.getElementsByClassName('cart-item-title');
+  for (var i = 0; i < cartItemsNames.length; i++){
+    alert("You have already add this item to cart");
+    return;
+  }
 }
+var cartBoxContent = `
+        <div><img className = "cart-item-image" src = {require('../images/Toy Catolog/Copy of snake.jpg')} alt = 'Modified Snake Toy'/> </div>
+        <div>
+          <h3 className = "cart-item-title">
+            Snake Toy
+          </h3>
+          <h4 className = "cart-item-info">
+            Info About Item
+          </h4>
+          <div className = "item-quantity-changer"> {/* Contains the trash can and item quantity counter */}
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="cart-trash" viewBox="0 0 16 16">
+            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+          </svg>
+          <div className = "counter">
+        	<div className="minus">-</div>
+          <div type = "number" value="1" className = "cart-quantity">1</div>
+        	<div className="plus">+</div>
+          </div>
+          </div>
+          </div>`;
+          cartShopBox.innerHTML = cartBoxContent;
+          cartItems.append(cartShopBox);
+          cartShopBox.getElementByClassName('cart-remove')[0].addEventListener('click', removeCartItem);
+          cartShopBox.getElementByClassName('cart-quantity')[0].addEventListener('change', quantityChanged);
+
 
 //Update Total
 function updatetotal(){
